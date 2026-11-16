@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help us improve Voice Dictation Extension</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%275%27 fill=%27%230a72da%27/%3E%3Crect x=%279.6%27 y=%274.5%27 width=%274.8%27 height=%279%27 rx=%272.4%27 fill=%27%23fff%27/%3E%3Cpath d=%27M7 11.2a5 5 0 0 0 10 0M12 16.2v3.3M9.3 19.5h5.4%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%271.6%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="328e350f-b770-4529-9500-92b514123a6c"></script>
+<style>
+  :root {
+    --bg: oklch(21% 0.008 60); --raised: oklch(25% 0.009 60); --border: oklch(34% 0.01 60);
+    --text: oklch(90% 0.01 75); --muted: oklch(66% 0.012 70); --faint: oklch(31% 0.01 60);
+    --accent: oklch(76% 0.13 250); --on-accent: oklch(20% 0.02 250);
+    --font: ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 17px/1.55 var(--font); }
+  .shell { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
+
+  .brand { display: flex; align-items: center; gap: 13px; margin-bottom: 36px; }
+  .mark { display: flex; flex: 0 0 auto; }
+  .brand b { font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+  .intro h1 { font-size: 32px; font-weight: 650; letter-spacing: -0.015em; line-height: 1.2; text-wrap: balance; }
+  .intro p { margin-top: 12px; color: var(--muted); max-width: 52ch; text-wrap: pretty; }
+
+  form { margin-top: 36px; }
+  .q { display: block; font-size: 14px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); }
+  textarea { display: block; margin-top: 14px; width: 100%; min-height: 140px; resize: vertical; border: 1px solid var(--border); border-radius: 12px;
+             background: var(--raised); color: var(--text); padding: 13px 16px; font: inherit; font-size: 16px; }
+  textarea::placeholder { color: oklch(56% 0.012 70); }
+  textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  .hint { margin-top: 8px; font-size: 14px; color: var(--muted); }
+
+  .send { margin-top: 24px; padding: 14px 28px; border: 0; border-radius: 12px; background: var(--accent); color: var(--on-accent);
+          font: inherit; font-size: 17px; font-weight: 700; cursor: pointer; }
+  .send:hover:not(:disabled) { background: oklch(81% 0.11 250); }
+  .send:disabled { opacity: .45; cursor: default; }
+
+  .thanks { display: none; }
+  .thanks h2 { font-size: 26px; letter-spacing: -0.01em; }
+  .thanks p { margin-top: 10px; color: var(--muted); max-width: 52ch; }
+  body[data-sent="true"] .intro, body[data-sent="true"] form { display: none; }
+  body[data-sent="true"] .thanks { display: block; }
+
+  @media (max-width: 600px) { .shell { padding: 32px 16px 56px; } .intro h1 { font-size: 27px; } }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#0a72da"/><rect x="9.6" y="4.5" width="4.8" height="9" rx="2.4" fill="#fff"/><path d="M7 11.2a5 5 0 0 0 10 0M12 16.2v3.3M9.3 19.5h5.4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <b>Voice Dictation Extension</b>
+    </div>
+
+    <div class="intro">
+      <h1>Help us improve Voice Dictation Extension</h1>
+      <p>Thanks for the honest rating. Tell us what gets in the way — it takes half a minute.</p>
+    </div>
+
+    <form id="feedback">
+      <label class="q" for="details">What should be better?</label>
+      <textarea id="details" name="details" placeholder="For example: a site where it didn't work, words it often got wrong, or a language you need"></textarea>
+      <p class="hint">Please don't include passwords or other private details.</p>
+      <button class="send" type="submit" disabled>Send feedback</button>
+    </form>
+
+    <div class="thanks" role="status">
+      <h2>Thank you. Every answer counts.</h2>
+      <p>Your answer helps us decide what to fix first.</p>
+    </div>
+  </div>
+
+<script>
+  // Responses go to the Google Form «Voice Dictation Extension feedback» (one question, created by forms_create.py).
+  // Empty FORM_ID = nothing is sent; the page still shows the thank-you state. FORM_ID and entry are filled in at the form step.
+  var FORM_ID = '';
+  var ENTRY_DETAILS = '';
+
+  var form = document.getElementById('feedback');
+  var send = form.querySelector('.send');
+  var field = form.querySelector('textarea[name="details"]');
+  // Send stays disabled until something is typed: an empty "thank you" would be a false success.
+  field.addEventListener('input', function () { send.disabled = !field.value.trim(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var text = field.value.trim();
+    if (!text) return;
+    if (FORM_ID && ENTRY_DETAILS) {
+      var data = new FormData();
+      data.append(ENTRY_DETAILS, text);
+      fetch('https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse',
+        { method: 'POST', mode: 'no-cors', body: data }).catch(function () {});
+    }
+    document.body.dataset.sent = 'true';
+  });
+</script>
+</body>
+</html>

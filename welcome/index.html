@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice Dictation Extension is installed</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%275%27 fill=%27%230a72da%27/%3E%3Crect x=%279.6%27 y=%274.5%27 width=%274.8%27 height=%279%27 rx=%272.4%27 fill=%27%23fff%27/%3E%3Cpath d=%27M7 11.2a5 5 0 0 0 10 0M12 16.2v3.3M9.3 19.5h5.4%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%271.6%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="328e350f-b770-4529-9500-92b514123a6c"></script>
+<style>
+  /* Page tokens = the product's approved dark surface tokens + its blue accent (design/voice-dictation-extension.dc.html). */
+  :root {
+    --bg: oklch(21% 0.008 60); --raised: oklch(25% 0.009 60); --border: oklch(34% 0.01 60);
+    --text: oklch(90% 0.01 75); --muted: oklch(66% 0.012 70); --faint: oklch(31% 0.01 60);
+    --accent: oklch(76% 0.13 250); --brand: #0a72da; --ring: #e5383b;
+    --font: ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 17px/1.55 var(--font); }
+  .shell { max-width: 780px; margin: 0 auto; padding: 24px 24px 64px; }
+
+  .brand { display: flex; align-items: center; gap: 13px; margin-bottom: 26px; }
+  .mark { display: flex; flex: 0 0 auto; }
+  .brand b { font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+  h1 { font-size: 31px; line-height: 1.16; letter-spacing: -0.02em; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lede { margin-top: 10px; font-size: 18px; color: var(--muted); }
+
+  .step { margin-top: 26px; }
+  .step h2 { font-size: 24px; letter-spacing: -0.01em; text-wrap: balance; }
+  .step > p { margin-top: 8px; color: var(--muted); }
+  .step > p strong { color: var(--text); font-weight: 600; }
+  .num { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+         background: var(--ring); color: #fff; font-size: 13px; font-weight: 700; vertical-align: 2px; margin: 0 2px; }
+
+  /* Illustration frame: reduced browser on the dark page, shadowed (lesson 3.2: not a crop, not life-size).
+     The pictures are 2x PNGs of the approved mockup's drawn browser (760 CSS px wide); annotations 1-4 are part of the picture. */
+  .shot { margin-top: 16px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border);
+          box-shadow: 0 18px 50px rgba(0,0,0,.45); background: #fff; }
+  .shot img { width: 100%; height: auto; display: block; }
+
+  .note { margin-top: 30px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--raised);
+          font-size: 15px; color: var(--muted); max-width: 64ch; }
+  .note strong { color: var(--text); font-weight: 600; }
+
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 14px; color: var(--muted); }
+  footer a { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .shell { padding: 20px 16px 48px; }
+    h1 { font-size: 26px; }
+    .step h2 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#0a72da"/><rect x="9.6" y="4.5" width="4.8" height="9" rx="2.4" fill="#fff"/><path d="M7 11.2a5 5 0 0 0 10 0M12 16.2v3.3M9.3 19.5h5.4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <b>Voice Dictation Extension</b>
+    </div>
+
+    <h1>Voice Dictation Extension is installed. <em>Speak into the field you select.</em></h1>
+    <p class="lede">Chrome hides new extensions behind the puzzle icon. Pin it in two clicks.</p>
+
+    <section class="step" id="step-pin">
+      <p>Click the puzzle icon&nbsp;<span class="num">1</span>, then the pin next to <strong>Voice Dictation Extension</strong>&nbsp;<span class="num">2</span>.</p>
+      <div class="shot">
+        <img src="step-1-2-pin.png" alt="Chrome toolbar with the Extensions menu open: 1 — click the puzzle icon, 2 — click the pin next to Voice Dictation Extension" width="1520" height="584">
+      </div>
+    </section>
+
+    <section class="step" id="step-start">
+      <h2>Click a text field, then press Start dictation</h2>
+      <p>Open an email, a chat or a form and click in a text field. Then click the Voice Dictation Extension icon&nbsp;<span class="num">3</span>, check the language and press <strong>Start dictation</strong>&nbsp;<span class="num">4</span>. If Chrome asks, allow the microphone.</p>
+      <div class="shot">
+        <img src="step-3-4-start.png" alt="A message field selected on a mail page and the Voice Dictation Extension popup: 3 — the extension icon in the toolbar, 4 — the Start dictation button" width="1520" height="1056">
+      </div>
+    </section>
+
+    <p class="note">Dictation works in supported text fields on HTTPS pages. Complex document editors, embedded frames, and password and payment fields aren't supported. Chrome may send audio to its speech service for recognition, so you may need an internet connection. <strong>There's no automatic sending:</strong> review the text before you send it.</p>
+
+    <footer>
+      Questions or a bug? <a href="https://github.com/anastasialekasova-hub/voice-dictation-extension-pages/issues" target="_blank" rel="noopener">Open an issue on GitHub</a>.
+      &nbsp;·&nbsp; <a href="https://pinwisp.com/voice-dictation-extension/privacy/">Privacy</a>
+    </footer>
+  </div>
+</body>
+</html>
